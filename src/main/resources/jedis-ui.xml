@@ -21,6 +21,8 @@
 	
 	<bean class="single.yuxuanwang.jedisui.listener.RemoveActionListener" />
 	
+	<bean class="single.yuxuanwang.jedisui.listener.ClearActionListener"/>
+	
 	<bean class="single.yuxuanwang.jedisui.MainFrame" />
 	
 	<bean class="single.yuxuanwang.jedisui.SearchFrame" />

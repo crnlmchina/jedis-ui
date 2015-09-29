@@ -34,7 +34,7 @@ public class SearchFrame extends JPanel {
 		JPanel regexDataView = new JPanel(new FlowLayout(FlowLayout.LEADING));
 		JTextField regexSearchKey = new JTextField();
 		regexSearchKey.setColumns(35);
-		JButton regexBt = new JButton("正则");
+		JButton regexBt = new JButton("模糊查询");
 		
 		ComponentRegedit.register("regexBt", regexBt);
 		ComponentRegedit.register("regexSearchKey", regexSearchKey);
@@ -44,11 +44,15 @@ public class SearchFrame extends JPanel {
 
 		JPanel inputView = new JPanel(new FlowLayout(FlowLayout.TRAILING));
 		inputView.add(regexSearchKey);
-		inputView.add(regexBt);
+		
+		JPanel regexBtView = new JPanel(new FlowLayout(FlowLayout.TRAILING));
+		regexBtView.add(regexBt);
+		
+		final JSplitPane inputPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT, inputView, regexBtView);
 
 		final JSplitPane splitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
 
-		splitPane.setTopComponent(inputView);
+		splitPane.setTopComponent(inputPane);
 		splitPane.setBottomComponent(regexDataView);
 		
 		splitPane.setDividerSize(3);
