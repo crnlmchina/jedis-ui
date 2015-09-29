@@ -1,9 +1,10 @@
 package single.yuxuanwang.jedisui;
 
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
+import java.awt.Label;
 
+import javax.swing.BorderFactory;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.JSplitPane;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,30 +21,30 @@ public class FrameInitail {
 	@Autowired
 	private SearchFrame searchFrame;
 	
+	private String shards;
+	
 	public void showMainFrame() {
-		JFrame frame = new JFrame("Jedis Client");
+		JFrame frame = new JFrame("Jedis GUI");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(1100, 600);
+		frame.setSize(1000, 600);
 		
-		final JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
+		final JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, mainFrame, searchFrame);
+		splitPane.setDividerLocation(500);
+		splitPane.setBorder(BorderFactory.createEmptyBorder());
 		
-		splitPane.setLeftComponent(mainFrame);
-		splitPane.setRightComponent(searchFrame);
+		final Label info = new Label("Shards: " + shards);
+		final JPanel infoFrame = new JPanel();
+		infoFrame.add(info);
 		
-		splitPane.addComponentListener(new ComponentAdapter() {
-
-			@Override
-			public void componentResized(ComponentEvent e) {
-				splitPane.setDividerLocation(0.5);
-			}
-		});
+		final JSplitPane topPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT, infoFrame, splitPane);
 		
-		splitPane.setDividerSize(5);
-		
-		frame.add(splitPane);
-
-		// frame.pack();
+		frame.add(topPane);
+		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
+	}
+
+	public void setShards(String shards) {
+		this.shards = shards;
 	}
 
 }
