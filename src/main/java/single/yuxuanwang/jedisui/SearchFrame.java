@@ -50,9 +50,11 @@ public class SearchFrame extends JPanel {
 		regexBtView.add(regexBt);
 		
 		final JSplitPane inputPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT, inputView, regexBtView);
+
 		inputPane.setBorder(BorderFactory.createEmptyBorder());
 		
 		final JSplitPane splitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT, inputPane, regexDataView);
+
 		
 		splitPane.setDividerSize(3);
 		

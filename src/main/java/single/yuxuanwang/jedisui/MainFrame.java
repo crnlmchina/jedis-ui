@@ -64,9 +64,11 @@ public class MainFrame extends JPanel {
 		buttonView.add(clearBt);
 		
 		final JSplitPane topPanel = new JSplitPane(JSplitPane.VERTICAL_SPLIT, inputView, buttonView);
+
 		topPanel.setBorder(BorderFactory.createEmptyBorder());
 
 		final JSplitPane splitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT, topPanel, dataView);
+
 
 		splitPane.setDividerSize(3);
 

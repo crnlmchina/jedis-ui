@@ -3,6 +3,7 @@ package single.yuxuanwang.jedisui;
 import java.awt.Label;
 
 import javax.swing.BorderFactory;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
@@ -40,6 +41,7 @@ public class FrameInitail {
 		
 		frame.add(topPane);
 		frame.setLocationRelativeTo(null);
+
 		frame.setVisible(true);
 	}
 
